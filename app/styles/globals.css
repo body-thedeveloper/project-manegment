@@ -3,23 +3,135 @@
 @tailwind utilities;
 
 @layer components {
+  /* Button Styles */
   .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 ease-in-out;
   }
-  
+
   .btn-primary {
-    @apply bg-primary text-white hover:bg-blue-600;
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-green-600;
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
   }
 
+  /* Input Styles */
   .input-field {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           placeholder-gray-400 transition-colors duration-200;
   }
 
+  /* Card Styles */
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white rounded-lg shadow-soft p-6 transition-all duration-200;
   }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Link Styles */
+  .link {
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
+  }
+
+  /* Footer Specific Styles */
+  .footer-link {
+    @apply text-gray-500 hover:text-gray-900 transition-colors duration-200;
+  }
+
+  .footer-heading {
+    @apply text-sm font-semibold text-gray-400 tracking-wider uppercase;
+  }
+
+  .social-icon {
+    @apply text-gray-400 hover:text-gray-500 transition-colors duration-200;
+  }
+
+  /* Newsletter Form */
+  .newsletter-input {
+    @apply min-w-0 flex-1 rounded-md border border-gray-300 bg-white 
+           py-2 px-4 text-base text-gray-900 placeholder-gray-500 
+           focus:border-primary-500 focus:outline-none focus:ring-1 
+           focus:ring-primary-500 transition-all duration-200;
+  }
+
+  .newsletter-button {
+    @apply flex-shrink-0 rounded-md border border-transparent 
+           bg-primary-600 px-4 py-2 text-base font-medium text-white 
+           shadow-sm hover:bg-primary-700 focus:outline-none 
+           focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 
+           disabled:opacity-50 disabled:cursor-not-allowed 
+           transition-all duration-200;
+  }
+
+  /* Grid Layouts */
+  .footer-grid {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+
+  /* Animations */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  /* Status Messages */
+  .success-message {
+    @apply mt-2 text-sm text-green-600;
+  }
+
+  .error-message {
+    @apply mt-2 text-sm text-red-600;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better Font Rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus Styles */
+*:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
 }

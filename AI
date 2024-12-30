@@ -52,5 +52,5 @@ if [ -f "./prisma/schema.prisma" ]; then
 
 fi
  
-gut add .
+git add .
  

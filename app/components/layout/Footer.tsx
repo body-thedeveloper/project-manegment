@@ -24,12 +24,14 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="footer-grid py-12">
         {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-gray-900">Project Hub</h3>
+          <h3 className="footer-heading">
+            Quick Links
+          </h3>
             <p className="text-gray-600">
               Empowering communities to bring ideas to life through collaboration
               and shared resources.
@@ -40,12 +42,9 @@ const Footer = () => {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-gray-500 transition-colors"
+                className="social-icon"
               >
-                <span className="sr-only">Facebook</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                </svg>
+                {/* icon content */}
               </a>
               <a 
                 href="https://twitter.com" 
@@ -145,30 +144,30 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="min-w-0 flex-1 rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors"
+                  className="newsletter-input"
                   placeholder="Enter your email"
                 />
                 <button
                   type="submit"
                   disabled={subscriptionStatus === 'loading'}
-                  className="flex-shrink-0 rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="newsletter-button"
                 >
                   {subscriptionStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </div>
-              {subscriptionStatus === 'success' && (
-                <p className="mt-2 text-sm text-green-600">Successfully subscribed!</p>
-              )}
-              {subscriptionStatus === 'error' && (
-                <p className="mt-2 text-sm text-red-600">An error occurred. Please try again.</p>
-              )}
+                {subscriptionStatus === 'success' && (
+                  <p className="success-message">Successfully subscribed!</p>
+                )}
+                {subscriptionStatus === 'error' && (
+                  <p className="error-message">An error occurred. Please try again.</p>
+                )}
             </form>
           </div>
         </div>
 
         {/* Bottom Footer */}
         <div className="border-t border-gray-200 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-base text-gray-400">
               &copy; {new Date().getFullYear()} Project Hub. All rights reserved.
             </div>
@@ -181,6 +180,9 @@ const Footer = () => {
               </Link>
               <Link href="/cookies" className="text-gray-400 hover:text-gray-500 transition-colors">
                 Cookie Policy
+              </Link>
+              <Link href="/projects" className="footer-link">
+                Browse Projects
               </Link>
             </div>
           </div>
